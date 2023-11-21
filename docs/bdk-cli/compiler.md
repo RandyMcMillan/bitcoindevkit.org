@@ -22,8 +22,6 @@ Once the command is done, you should have the `bdk-cli compile` command availabl
 In this case the interface is very simple: it accepts two arguments called "POLICY" and "TYPE", in this order. The first one, as the name implies, sets the spending policy to compile. The latter defines the type
 of address that should be used to encapsulate the produced script, like a P2SH, P2WSH, etc.
 
-Optionally, the `--parsed_policy` flag can be enabled and it will make the compiler print the JSON "human-readable" version of the spending policy, as described in the [`policies subcommand`](/bdk-cli/interface/#policies) of the CLI.
-
 The `--network` flag can be used to change the network encoding of the address shown.
 
 ::: tip Tip
@@ -36,7 +34,7 @@ placeholders too. As described in the previous sections of this guide, the keys 
 Let's take this policy for example:
 
 ```bash
-bdk-cli compile "and(pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR),or(50@pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),older(1000)))"
+bdk-cli compile "and(pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR),or(50@pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),older(1000)))"  -t wsh
 ```
 ```
 {
