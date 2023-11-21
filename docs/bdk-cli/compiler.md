@@ -33,14 +33,42 @@ placeholders too. As described in the previous sections of this guide, the keys 
 
 Let's take this policy for example:
 
+>"and(pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR),or(50@pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),older(1000)))"
+
+Using: ```bdk-cli compile POLICY TYPE```
+
+>bdk-cli compile "and(pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR),or(50@pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),older(1000)))" --type [sh, wsh, sh-wsh]
+
 ```bash
-bdk-cli compile "and(pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR),or(50@pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),older(1000)))" --type wsh
+bdk-cli compile "and(pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR),or(50@pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),older(1000)))" --type [sh,wsh,sh-wsh]
 ```
+
+--type sh
+
 ```
 {
+  "descriptor": "sh(and_v(or_c(pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),v:older(1000)),pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR)))#475j5u9e"
+}
+```
+
+--type wsh
+
+
+```
+{
+
   "descriptor": "wsh(and_v(or_c(pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),v:older(1000)),pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR)))#v28ceq6h"
 }
 
+```
+
+--type sh-wsh
+
+
+```
+{
+  "descriptor": "sh(wsh(and_v(or_c(pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),v:older(1000)),pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR))))#88l9flkh"
+}
 ```
 
 The compiler should print something like:
