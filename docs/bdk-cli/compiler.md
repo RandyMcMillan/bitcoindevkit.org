@@ -12,10 +12,10 @@ the ones made by the C++ implementation used in that website.
 To install the miniscript compiler run the following command:
 
 ```bash
-cargo install --git https://github.com/bitcoindevkit/bdk --features="compiler" --example miniscriptc
+cargo install --git https://github.com/bitcoindevkit/bdk-cli --features="compiler"
 ```
 
-Once the command is done, you should have a `miniscriptc` command available. You can check if that's the case by running `miniscriptc --help`.
+Once the command is done, you should have the `bdk-cli compile` command available. You can check if that's the case by running `bdk-cli compile --help`.
 
 ## Usage
 
@@ -36,7 +36,13 @@ placeholders too. As described in the previous sections of this guide, the keys 
 Let's take this policy for example:
 
 ```bash
-miniscriptc --parsed_policy "and(pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR),or(50@pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),older(1000)))" sh-wsh
+bdk-cli compile "and(pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR),or(50@pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),older(1000)))"
+```
+```
+{
+  "descriptor": "wsh(and_v(or_c(pk(02e96fe52ef0e22d2f131dd425ce1893073a3c6ad20e8cac36726393dfb4856a4c),v:older(1000)),pk(cSQPHDBwXGjVzWRqAHm6zfvQhaTuj1f2bFH58h55ghbjtFwvmeXR)))#v28ceq6h"
+}
+
 ```
 
 The compiler should print something like:
